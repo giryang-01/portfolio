@@ -1,3 +1,4 @@
+@charset "utf-8";
 html {
   scroll-behavior: smooth;
 }
@@ -12,7 +13,6 @@ header {
 .gnb {
   display: flex;
   justify-content: space-between;
-  width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   padding: 20px 10px;
@@ -37,8 +37,7 @@ header {
 
 .main-visual {
   display: flex;
-  justify-content: center;
-  gap: 100px;
+  justify-content: space-evenly;
   padding-top: 150px;
 }
 
@@ -58,8 +57,6 @@ header {
 .main-visual .blowing-text {
   display: flex;
   font-weight: bold;
-  gap: 0.5rem;
-  text-align: end;
   font-size: 9.375rem;
 }
 
@@ -77,6 +74,10 @@ header {
 /* 애니메이션 이름 'blowing'이 적용될 때 */
 .blowing-text.once .char {
   animation-name: blowing;
+}
+
+.char:nth-child(5) {
+  padding-right: 30px;
 }
 
 @keyframes blowing {
@@ -128,15 +129,19 @@ header {
 }
 
 .main-visual-menu .viewbox .icon {
-  color: #777;
+  position: absolute;
+  color: #555;
   font-size: 1.75em;
   transition: 0.5s;
   transition-delay: 0.25s;
 }
 
 .main-visual-menu .viewbox .icon img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 40px;
-  vertical-align: bottom;
 }
 
 .main-visual-menu .viewbox:hover .icon {
@@ -145,12 +150,8 @@ header {
   transition-delay: 0s;
 }
 
-.main-visual-menu .viewbox span {
-  position: absolute;
-}
-
 .main-visual-menu .viewbox .text {
-  font-size: 1.1em;
+  font-size: 1em;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   transform: scale(0);
@@ -163,7 +164,7 @@ header {
   transition-delay: 0.25s;
 }
 
-.main-visual .txtbox>p {
+.main-visual .txtbox > p {
   font-size: 1.5rem;
   padding-top: 100px;
   text-align: right;
@@ -184,7 +185,7 @@ header {
   width: 40%;
   min-height: 300px;
   padding: 20px 0;
-  background: #555;
+  background: #121212;
   border-top-right-radius: 60px;
   border-bottom-right-radius: 60px;
 }
@@ -194,19 +195,12 @@ header {
   bottom: 50px;
   right: 50px;
   font-size: 5rem;
-  text-align: end;
   color: #fff;
-}
-
-#about .about-wrap {
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
 }
 
 #about .about-box {
   position: absolute;
-  left: 48%;
+  left: 47%;
   top: 200px;
   width: 50%;
   height: auto;
@@ -225,7 +219,7 @@ header {
   font-size: 2.25rem;
 }
 
-#about .about-box h3 {
+#about .about-txt h3 {
   font-size: 1.75rem;
 }
 
@@ -235,6 +229,25 @@ header {
 
 #about .contact ul li {
   padding-bottom: 8px;
+  padding-left: 36px;
+}
+
+#about .contact ul li:nth-child(1) {
+  background: url(/img/icon/birthday-icon.svg) no-repeat;
+}
+#about .contact ul li:nth-child(2) {
+  background: url(/img/icon/phone-icon.svg) no-repeat;
+}
+#about .contact ul li:nth-child(3) {
+  background: url(/img/icon/home-icon.svg) no-repeat;
+}
+#about .contact ul li:nth-child(4) {
+  background: url(/img/icon/mail-icon.svg) no-repeat;
+}
+
+#about .contact,
+#about .license {
+  width: 40%;
 }
 
 #about .license {
@@ -248,24 +261,39 @@ header {
 
 #about .license table tr td {
   padding-right: 16px;
+  padding-left: 36px;
+}
+
+#about .license table tr:nth-child(1) td {
+  background: url(/img/icon/web-icon.svg) no-repeat;
+}
+#about .license table tr:nth-child(2) td {
+  background: url(/img/icon/illustrator.svg) no-repeat;
+}
+#about .license table tr:nth-child(3) td {
+  background: url(/img/icon/photoshop-icon.svg) no-repeat;
 }
 
 #about .license table tr th {
   font-weight: normal;
+  text-align: left;
+  word-break: keep-all;
 }
 
 #about .education {
   position: absolute;
-  left: 40%;
+  left: 39%;
   top: 0;
+  width: 60%;
 }
 
 #about .education .period {
   position: relative;
   top: 10px;
   left: 0;
-  margin-bottom: 80px;
-  width: fit-content;
+  margin-bottom: 82px;
+  max-width: 138px;
+  text-align: center;
 }
 
 #about .education .period:first-child {
@@ -280,7 +308,7 @@ header {
   left: 50%;
   transform: translate(-50%);
   border: 2px solid #333;
-  height: 62px;
+  height: 68px;
 }
 
 #about .education .period:first-child::before {
@@ -291,14 +319,15 @@ header {
   left: 50%;
   transform: translate(-50%);
   border: 2px solid #333;
-  height: 62px;
+  height: 68px;
 }
 
 #about .education .period li {
   position: absolute;
   top: 0;
-  left: 146px;
+  left: 156px;
   white-space: nowrap;
+  text-align: left;
 }
 
 #about .skills h3 {
@@ -316,7 +345,7 @@ header {
   transform: translateX(-50%);
   display: flex;
   flex-wrap: wrap;
-  min-width: 1280px;
+  min-width: 1260px;
 }
 
 #about .skills .skillbox {
@@ -347,6 +376,9 @@ header {
   transform: translate(-50%, -50%);
   font-size: 1.125rem;
   color: #333;
+}
+#about .skills .skillbox p {
+  padding-top: 16px;
 }
 
 #about .skills .percent:after {
@@ -395,7 +427,7 @@ header {
 }
 
 #project .img-mask {
-  min-width: 850px;
+  /* min-width: 850px; */
   max-height: 550px;
   background: #f8f8f8;
   border-radius: 50px;
@@ -409,10 +441,13 @@ header {
 }
 
 #project .pjtxt-box {
+  max-width: 380px;
+  min-width: 380px;
   position: relative;
   background: #f8f8f8;
   border-radius: 50px;
   padding: 40px;
+  box-sizing: border-box;
 }
 
 #project .pjtxt-box h3,
@@ -472,7 +507,7 @@ header {
 #project .pjtxt-box .spot li a:hover,
 #project .pjtxt-box .spot li a:focus,
 #project .pjtxt-box .spot li a:active {
-  color: #333;
+  color: #121212;
 }
 
 #project .pjtxt-box .spot li a:hover:before,
@@ -505,7 +540,8 @@ header {
 }
 
 #artwork .artwork-menu li.show {
-  color: #333;
+  color: #121212;
+  transition: 0.5ms;
 }
 
 #artwork .artwork-con {
@@ -538,36 +574,37 @@ header {
   transition: transform 0.3s ease;
 }
 
-#artwork .artwork-card {
+#artwork .card-wrap {
   position: relative;
   display: none;
 }
 
-#artwork .artwork-card ul {
+#artwork .artwork-card {
   display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  padding-bottom: 50px;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-#artwork .artwork-card ul li {
-  width: 25%;
+#artwork .swiper {
+  position: relative;
+  overflow: hidden;
+  width: calc((100% - 40px) / 3);
+  aspect-ratio: 1 / 1;
+  margin: 0;
 }
 
-#artwork .artwork-card ul li img {
+#artwork .swiper ul {
+  display: flex;
+}
+
+#artwork .swiper li {
+  overflow: hidden;
+  flex: 0 0 100%;
+}
+
+#artwork .swiper li img {
   width: 100%;
-}
-
-.card-zoomed {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
-  transition: transform 0.3s ease;
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
+  object-fit: cover;
 }
 
 .overlay {
@@ -599,7 +636,7 @@ footer .txtbox {
   text-align: center;
 }
 
-footer .txtbox>p {
+footer .txtbox > p {
   padding-bottom: 80px;
 }
 
@@ -654,7 +691,7 @@ footer .foot-menu li a:before {
 footer .foot-menu li a:hover,
 footer .foot-menu li a:focus,
 footer .foot-menu li a:active {
-  color: #333;
+  color: #121212;
 }
 
 footer .foot-menu li a:hover:before,
@@ -665,10 +702,14 @@ footer .foot-menu li a:active:before {
 }
 
 footer .copy {
-  background: #333;
+  background: #121212;
   color: #ccc;
   font-size: 0.875rem;
   text-align: center;
   padding-top: 45px;
   padding-bottom: 45px;
+}
+
+.mo {
+  display: none;
 }
